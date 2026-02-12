@@ -11,48 +11,55 @@
     <packaging>war</packaging>
 
     <properties>
-        <maven.compiler.source>25</maven.compiler.source>
-        <maven.compiler.target>25</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
 
-        <!-- Jakarta Servlet API -->
+        <!-- Servlet API (Tomcat 9 = javax) -->
         <dependency>
-            <groupId>jakarta.servlet</groupId>
-            <artifactId>jakarta.servlet-api</artifactId>
-            <version>6.0.0</version>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
             <scope>provided</scope>
         </dependency>
 
-        <!-- Jakarta JSP -->
+        <!-- JSP API -->
         <dependency>
-            <groupId>jakarta.servlet.jsp</groupId>
-            <artifactId>jakarta.servlet.jsp-api</artifactId>
-            <version>3.1.1</version>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>2.3.3</version>
             <scope>provided</scope>
         </dependency>
 
-        <!-- Jakarta Persistence (JPA) -->
+        <!-- JPA -->
         <dependency>
-            <groupId>jakarta.persistence</groupId>
-            <artifactId>jakarta.persistence-api</artifactId>
-            <version>3.1.0</version>
+            <groupId>javax.persistence</groupId>
+            <artifactId>javax.persistence-api</artifactId>
+            <version>2.2</version>
         </dependency>
 
-        <!-- Hibernate compatible Jakarta -->
+        <!-- Hibernate (Java EE compatible) -->
         <dependency>
-            <groupId>org.hibernate.orm</groupId>
+            <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>6.4.4.Final</version>
+            <version>5.6.15.Final</version>
         </dependency>
 
         <!-- SQL Server Driver -->
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId>
-            <version>12.6.1.jre11</version>
+            <version>12.2.0.jre11</version>
+        </dependency>
+
+        <!-- JSTL -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
         </dependency>
 
     </dependencies>

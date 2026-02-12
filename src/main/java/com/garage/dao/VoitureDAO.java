@@ -2,7 +2,7 @@ package com.garage.dao;
 
 import com.garage.model.Voiture;
 import com.garage.util.JPAUtil;
-import jakarta.persistence.EntityManager;
+import javax.persistence.EntityManager;
 
 import java.util.List;
 
@@ -24,7 +24,7 @@ public class VoitureDAO {
 		em.close();
 	}
 	
-	public void suprimer(String immatriculation) {
+	public void supprimer(String immatriculation) {
 		EntityManager em = JPAUtil.getEntityManagerFactory().createEntityManager();
 		em.getTransaction().begin();
 		Voiture v = em.find(Voiture.class, immatriculation);

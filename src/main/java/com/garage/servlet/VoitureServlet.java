@@ -2,9 +2,11 @@ package com.garage.servlet;
 
 import com.garage.dao.VoitureDAO;
 import com.garage.model.Voiture;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
@@ -18,9 +20,11 @@ public class VoitureServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String action = request.getParameter("action");
+        
+    	System.out.println(">>> doGet appelé, action = " + request.getParameter("action"));
+    	String action = request.getParameter("action");
 
-        if (action == null) {
+        if (action == null || action.isEmpty()) {
             // 1. Affichage de la liste
             request.setAttribute("voitures", dao.findAll());
             request.getRequestDispatcher("index.jsp").forward(request, response);

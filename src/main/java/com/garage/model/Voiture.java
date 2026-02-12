@@ -1,6 +1,6 @@
 package com.garage.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 
 @Entity

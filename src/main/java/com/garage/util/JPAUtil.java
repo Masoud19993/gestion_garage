@@ -1,12 +1,12 @@
 package com.garage.util;
 
-import  jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
+import  javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 public class JPAUtil {
 	
 	private static final EntityManagerFactory emf = 
-			Persistence.createEntityManagerFactory("garagepu");
+			Persistence.createEntityManagerFactory("garagePU");
 	
 	public static EntityManagerFactory getEntityManagerFactory() {
 		return emf;
