@@ -1,3 +1,7 @@
+<%
+    String errorImmat = (String) request.getAttribute("errorImmatriculation");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +16,19 @@
     <input type="hidden" name="action" value="add">
 
     Immatriculation :
-    <input type="text" name="immatriculation" required><br><br>
+	<input type="text"
+       name="immatriculation"
+       <%= (errorImmat != null) ? "style='border:2px solid red;'" : "" %>
+       required />
+
+	<% if (errorImmat != null) { %>
+    <span style="color:red; margin-left:10px;">
+        <%= errorImmat %>
+    </span>
+	<% } %>
+	<br><br>
+    
+    
 
     Marque :
     <input type="text" name="marque" required><br><br>
