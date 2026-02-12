@@ -51,6 +51,9 @@ public class VoitureServlet extends HttpServlet {
         String action = request.getParameter("action");
 
         if (action.equals("add")) {
+        	
+        	// Récupérer l'immatriculation AVANT de l'utiliser
+            String immat = request.getParameter("immatriculation");
         	// Vérification si déjà existante
             if (dao.existsById(immat)) {
 
