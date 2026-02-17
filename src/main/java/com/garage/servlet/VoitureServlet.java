@@ -51,7 +51,21 @@ public class VoitureServlet extends HttpServlet {
         String action = request.getParameter("action");
 
         if (action.equals("add")) {
-            // 4. Ajout d’une voiture
+        	
+        	// Récupérer l'immatriculation AVANT de l'utiliser
+            String immat = request.getParameter("immatriculation");
+        	// Vérification si déjà existante
+            if (dao.existsById(immat)) {
+
+                request.setAttribute("errorImmatriculation", "Cette immatriculation existe déjà.");
+
+                // On renvoie vers le formulaire
+                request.getRequestDispatcher("ajouter.jsp")
+                       .forward(request, response);
+                return;
+            }
+        	
+        	// 4. Ajout d’une voiture
             Voiture v = new Voiture(
                     request.getParameter("immatriculation"),
                     request.getParameter("marque"),

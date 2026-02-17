@@ -16,6 +16,13 @@ public class VoitureDAO {
 		em.close();
 	}
 	
+	public boolean existsById(String immatriculation) {
+	    EntityManager em = JPAUtil.getEntityManagerFactory().createEntityManager();
+	    Voiture v = em.find(Voiture.class, immatriculation);
+	    em.close();
+	    return v != null;
+	}
+	
 	public void modifier(Voiture v) {
 		EntityManager em = JPAUtil.getEntityManagerFactory().createEntityManager();
 		em.getTransaction().begin();
